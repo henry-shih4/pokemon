@@ -20,22 +20,18 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
 
 
 function initialize(pokemon) {
-
-  console.log(pokemon);
+  sprite.innerHTML = `<div id="question-mark"><img class='moving' src="images/question-mark.png" alt=""></div>`  
   let name = pokemon.name;
-
   let types = pokemon.types;
   let pokemonTypes = [];
-
   types.forEach((type) => {
     pokemonTypes.push(type.type.name);
   });
 
   sprite.innerHTML = `<img src=https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png>`;
-
   nameDisplay.innerHTML = `<p>${name.charAt(0).toUpperCase() + name.slice(1)}</p>`;
   typesDisplay.innerHTML = `<p>Type(s): ${pokemonTypes.join(" ")}</p>`;
-
+  
 }
 
 
@@ -46,8 +42,11 @@ sprite.innerHTML = `<div id="question-mark">
 <img class='moving' src="images/question-mark.png" alt="">
 <img class='moving' src="images/question-mark.png" alt="">
 <img class="moving" src="images/question-mark.png" alt="">
+<img class="moving" src="images/question-mark.png" alt="">
 </div>`
 
+nameDisplay.innerHTML = '';
+typesDisplay.innerHTML = '';
 let movingImage = document.querySelectorAll('.moving');
 
 for (let i=0; i<movingImage.length;i++){
