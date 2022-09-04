@@ -20,17 +20,20 @@ body {
 
 .moving-active {
   animation: moveDown linear .5s;
-  animation-iteration-count: 4;
+  animation-iteration-count: 3;
 }
 
-
+#poke-sprite{
+height:140px;
+width:140px;
+}
 
 @keyframes moveDown {
   0% {
-    transform: translateY(0);
+    transform: translateY(-650px);
   }
 
   100% {
-    transform: translateY(-650px);
+    transform: translateY(0px);
   }
 }

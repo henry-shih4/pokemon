@@ -28,7 +28,7 @@ function initialize(pokemon) {
     pokemonTypes.push(type.type.name);
   });
 
-  sprite.innerHTML = `<img src=https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png>`;
+  sprite.innerHTML = `<img id="poke-sprite" src=https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png>`;
   nameDisplay.innerHTML = `<p>${name.charAt(0).toUpperCase() + name.slice(1)}</p>`;
   typesDisplay.innerHTML = `<p>Type(s): ${pokemonTypes.join(" ")}</p>`;
   
