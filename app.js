@@ -6,7 +6,7 @@ let randomBtn = document.getElementById("random-btn");
 let pokemonContainer = document.getElementById("pokemon");
 let pokemonSearch = document.getElementById("search-name");
 let form = document.getElementById("form");
-let regExLetters = /[a-z]/gi;
+let regExLetters = /[A-Za-z]/gi;
 
 form.addEventListener("submit", searchPokemon);
 randomBtn.addEventListener("click", loading);
@@ -27,7 +27,7 @@ function fetchPokemon() {
 
 function searchPokemon() {
   event.preventDefault();
-  id = pokemonSearch.value;
+  id = pokemonSearch.value.toLowerCase();
   if (id == "") {
     return;
   } else if (id.match(regExLetters)) {

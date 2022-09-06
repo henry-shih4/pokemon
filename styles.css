@@ -133,3 +133,17 @@ button{
     transform: translateY(40px);
   }
 }
+
+
+@media (max-width:600px){
+  #header {
+      height: 100px;
+      width: 500px;
+    }
+  
+    #header img {
+      height: 100%;
+      width: 100%;
+      object-fit: scale-down;
+    }
+}
