@@ -50,10 +50,16 @@ function displayPokemon(pokemon) {
   sprite.innerHTML = `<div id="question-mark"><img class='moving' src="images/question-mark.png" alt=""></div>`;
   let name = pokemon.name;
   let types = pokemon.types;
+  // let stats = pokemon.stats;
+
   let pokemonTypes = [];
   types.forEach((type) => {
     pokemonTypes.push(type.type.name);
   });
+
+  // for (let i = 0; i < stats.length + 1; i++) {
+  //   console.log(stats[i].base_stat);
+  // }
 
   sprite.innerHTML = `<img id="poke-sprite" src=https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png>`;
   nameDisplay.innerHTML = `<div id='name-display'>${
@@ -63,6 +69,7 @@ function displayPokemon(pokemon) {
   typesDisplay.innerHTML = `<div id="type-display">Type(s): ${pokemonTypes.join(
     " / "
   )}</div>`;
+
   pokemonSearch.value = name;
 }
 
