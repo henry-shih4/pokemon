@@ -111,13 +111,14 @@ function drawChart() {
 
   var options = {
     title: "Pokemon Stats",
-    chartArea: { top: 20, bottom: 0, right: 0, left: 50 },
-    // legend: { position: "none" },
-    hAxis: { gridlines: { count: 2 } },
-    // vAxis: { textPosition: "none", gridlines: { count: 0 } },
+    chartArea: { top: 20, bottom: 0, right: 0, left: 80 },
+    hAxis: { gridlines: { count: 0 } },
     baselineColor: "transparent",
+    backgroundColor: "#FFDE00",
     bar: { groupWidth: "95%" },
     colors: ["#657CD0", "#DA68A0", "#06C3C0", "#777B80", "#7C6D70", "#7C0850"],
+    width: "300",
+    height: "300",
   };
 
   var view = new google.visualization.DataView(data);
