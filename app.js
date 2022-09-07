@@ -2,11 +2,12 @@ let sprite = document.getElementById("image");
 let nameDisplay = document.getElementById("name");
 let numDisplay = document.getElementById("num");
 let typesDisplay = document.getElementById("type");
+let chartDisplay = document.getElementById('chart-container');
 let randomBtn = document.getElementById("random-btn");
 let pokemonContainer = document.getElementById("pokemon");
 let pokemonSearch = document.getElementById("search-name");
 let form = document.getElementById("form");
-let regExLetters = /[A-Za-z]/gi;
+let regExLetters = /[A-Za-z0-9]/gi;
 
 form.addEventListener("submit", searchPokemon);
 randomBtn.addEventListener("click", loading);
@@ -26,6 +27,7 @@ function fetchPokemon() {
 }
 
 function searchPokemon() {
+  chartDisplay.innerHTML='';
   event.preventDefault();
   id = pokemonSearch.value.toLowerCase();
   if (id == "") {
@@ -40,8 +42,9 @@ function searchPokemon() {
       })
       .then((json) => displayPokemon(json))
       .catch((err) => errorMessage());
-  } else {
-    sprite.innerHTML = "<div>please enter only letters</div>";
+    }
+   else {
+    sprite.innerHTML = "<div>Please enter a pokemon name or Pokedex number.</div>";
   }
 }
 
@@ -50,16 +53,39 @@ function displayPokemon(pokemon) {
   sprite.innerHTML = `<div id="question-mark"><img class='moving' src="images/question-mark.png" alt=""></div>`;
   let name = pokemon.name;
   let types = pokemon.types;
-  // let stats = pokemon.stats;
-
+  let pokemonStats = pokemon.stats;
+  let individualStat = [];
   let pokemonTypes = [];
+
+
   types.forEach((type) => {
     pokemonTypes.push(type.type.name);
   });
 
-  // for (let i = 0; i < stats.length + 1; i++) {
-  //   console.log(stats[i].base_stat);
-  // }
+  console.log(pokemonStats);
+
+  pokemonStats.forEach((statType)=>{
+    individualStat.push([statType.stat.name, statType['base_stat']]);
+  }
+  )
+ 
+  anychart.onDocumentReady(function(){
+    const pokemonStatData = {
+      header: ["Stat", "Amount"],
+      rows: individualStat
+    }
+
+
+  var chart = anychart.bar();
+  chart.data(pokemonStatData);
+  chart.title('pokemon stats');
+  chart.container('chart-container');
+  chart.normal().fill('red',0.5);
+  chart.draw();
+});
+
+
+  console.log(individualStat)
 
   sprite.innerHTML = `<img id="poke-sprite" src=https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png>`;
   nameDisplay.innerHTML = `<div id='name-display'>${
@@ -67,7 +93,7 @@ function displayPokemon(pokemon) {
   }</div>`;
   numDisplay.innerHTML = `<div id="num-display">#${id}</div>`;
   typesDisplay.innerHTML = `<div id="type-display">Type(s): ${pokemonTypes.join(
-    " / "
+    ",  "
   )}</div>`;
 
   pokemonSearch.value = name;
@@ -84,6 +110,8 @@ function loading() {
   nameDisplay.innerHTML = "";
   typesDisplay.innerHTML = "";
   numDisplay.innerHTML = "";
+  chartDisplay.innerHTML = '';
+
   let movingImage = document.querySelectorAll(".moving");
 
   for (let i = 0; i < movingImage.length; i++) {

@@ -33,6 +33,8 @@ body {
           border-radius:10px;
           opacity:.9;
           color:black;
+          width:500px;
+height:600px;
 }
 
 #pokemon{
@@ -40,8 +42,8 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 300px;
-    width: 300px;
+width: 100%;
+height:100%;
 }
 
 #search-name{
@@ -59,8 +61,8 @@ body {
 }
 
 #image{
-  width:100%;
-  height:60%;
+  width:70%;
+  height:50%;
   display: flex;
   justify-content: center;
   align-items:center;
@@ -69,8 +71,8 @@ body {
 #question-mark {
   display:flex;
   flex-direction: column;
-  width:50%;
-  height:100%;
+  width:140px;
+  height:160px;
   overflow: hidden;
 }
 
@@ -112,6 +114,16 @@ font-size:1.5rem;
 
 #type{
   font-size:1.2rem;
+}
+
+.left{
+  display:flex;
+  flex-direction: column;
+}
+
+.bottom{
+  display:flex;
+  flex-direction: row;
 }
 
 button{

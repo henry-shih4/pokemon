@@ -7,7 +7,7 @@
     <title>Random Pokemon Generator</title>
     <link rel="stylesheet" href="styles.css">
     <script src="app.js" defer ></script>
-
+    <script src="https://cdn.anychart.com/releases/8.0.0/js/anychart-base.min.js"></script>
 </head>
 <body>
     <div id="header"><img src="images/pokefont header.png" alt="hen's pokegenerator header"></div>
@@ -17,13 +17,16 @@
 <input type="text" id="search-name">
 <button type="submit">Search</button>
 </form>
-<div id="pokemon">
-    <div id="image"></div>
+<div id="pokemon"><div>  <div id="image"></div></div>
+    <div class="bottom">
+    <div class="left">
     <div class="name-num-ctr">
     <div id="name"></div>
     <div id="num"></div>
 </div>
 <div id="type"></div>
+</div>
+<div class="right"><div id="chart-container"></div></div></div>
 </div>
 <button id="random-btn">Random Pokemon</button>
 </div>
