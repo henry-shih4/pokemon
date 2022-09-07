@@ -7,28 +7,27 @@
     <title>Random Pokemon Generator</title>
     <link rel="stylesheet" href="styles.css">
     <script src="app.js" defer ></script>
-    <script src="https://cdn.anychart.com/releases/8.0.0/js/anychart-base.min.js"></script>
+    <!-- <script src="https://cdn.anychart.com/releases/8.0.0/js/anychart-base.min.js"></script> -->
+    <script src="https://www.gstatic.com/charts/loader.js">
+    </script>
 </head>
 <body>
     <div id="header"><img src="images/pokefont header.png" alt="hen's pokegenerator header"></div>
     <div class="container">
 <form id="form">
-<label for="search-name">Pokemon Name: </label>
+<label for="search-name">Pokemon Name or Pokedex#: </label>
 <input type="text" id="search-name">
 <button type="submit">Search</button>
 </form>
-<div id="pokemon"><div>  <div id="image"></div></div>
-    <div class="bottom">
-    <div class="left">
-    <div class="name-num-ctr">
+<div id="pokemon"><div class="image-container">  <div id="image"></div><div class="name-num-ctr">
     <div id="name"></div>
     <div id="num"></div>
-</div>
 <div id="type"></div>
 </div>
-<div class="right"><div id="chart-container"></div></div></div>
 </div>
+<div class="right"><div id="myChart" style="max-width:400px; height:400px"></div></div></div>
 <button id="random-btn">Random Pokemon</button>
+</div>
 </div>
     
 </body>
