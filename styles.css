@@ -143,8 +143,14 @@ button{
   padding:0.5em;
   border-radius:4px;
   color:white;
+  cursor: pointer;
 }
 
+button:hover{
+  background-color: #fff;
+  color:#3B4CCA;
+  transition:ease-in 0.2s;
+}
 #random-btn{
     margin-top: 1em;
 }

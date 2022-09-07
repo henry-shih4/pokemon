@@ -2,7 +2,7 @@ let sprite = document.getElementById("image");
 let nameDisplay = document.getElementById("name");
 let numDisplay = document.getElementById("num");
 let typesDisplay = document.getElementById("type");
-let chartDisplay = document.getElementById("chart-container");
+let chartDisplay = document.getElementById("myChart");
 let randomBtn = document.getElementById("random-btn");
 let pokemonContainer = document.getElementById("pokemon");
 let pokemonSearch = document.getElementById("search-name");
@@ -30,8 +30,8 @@ function fetchPokemon() {
 function searchPokemon() {
   event.preventDefault();
   id = pokemonSearch.value.toLowerCase();
-  if (id == "") {
-    return;
+  if (id == "" || Number(id) > 905) {
+    errorMessage();
   } else if (id.match(regExLetters)) {
     fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
       .then((response) => {
@@ -103,6 +103,10 @@ function loading() {
 
 function errorMessage() {
   sprite.innerHTML = "<div>Pokemon not found. Try again.</div>";
+  nameDisplay.innerHTML = "";
+  typesDisplay.innerHTML = "";
+  numDisplay.innerHTML = "";
+  chartDisplay.innerHTML = "";
   console.error("Fetch problem: pokemon not found");
 }
 
